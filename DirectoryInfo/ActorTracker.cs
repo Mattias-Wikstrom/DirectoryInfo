@@ -2,6 +2,7 @@
 using DirectoryInfo;
 using System.Collections.Generic;
 
+// This actor is used to keep track of other actors (currently just FileWorkerActors)
 public class ActorTracker : ReceiveActor
 {
     private readonly Dictionary<string, IActorRef> _actors = new();
@@ -9,15 +10,15 @@ public class ActorTracker : ReceiveActor
     public ActorTracker()
     {
         Receive<RegisterActor>(msg => _actors[msg.ActorId] = msg.ActorRef);
-        Receive<string>(msg =>
+
+        Receive<GetAll>(msg =>
         {
-            if (msg == "GetAll")
-            {
-                Sender.Tell(new Dictionary<string, IActorRef>(_actors));
-            } else if (msg == "GetCount")
-            {
-                Sender.Tell(_actors.Count);
-            }
+            Sender.Tell(new Dictionary<string, IActorRef>(_actors));
+        });
+        
+        Receive<GetCount>(msg =>
+        {
+            Sender.Tell(_actors.Count);
         });
     }
 }

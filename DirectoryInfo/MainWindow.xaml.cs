@@ -93,8 +93,9 @@ namespace DirectoryInfo
             _actorUiActor.Tell(new Clear());
             var scanId = Guid.NewGuid();
 
+            _rootWorker.Tell(new Reset());
             _rootWorker.Tell(new GetFiles(scanId, folderPath));
-            await Task.Yield();
+            // await Task.Yield();
             //await _tracker.Ask<Dictionary<string, IActorRef>>("GetAll");
         }
     }

@@ -4,25 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="File Scanner">
 
-    <StackPanel Margin="12" Spacing="12">
+    <StackPanel Margin="12" Spacing="12" Width="800" Height="600">
         <!-- Buttons -->
         <StackPanel Orientation="Horizontal" Spacing="12">
             <Button x:Name="SelectFolderButton"
-                    Content="List Folder Contents..."
+                    Content="Analyze Folder..."
                     Click="SelectFolderButton_Click"/>
         </StackPanel>
-
-
-        <TextBlock x:Name="StatusText" Text="Ready" FontWeight="Bold"/>
-
-        <ProgressRing x:Name="WorkIndicator" IsActive="False" Width="50" Height="50"/>
-
-
 
         <StackPanel Orientation="Horizontal" Spacing="12">
 
             <!-- Files List -->
-            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+            <StackPanel Margin="0,0,10,0">
                 <TextBlock Text="Files:" FontWeight="Bold"/>
                 <ListBox x:Name="FilesListBox"
                           Width="350" Height="350"
@@ -33,8 +26,8 @@
             </StackPanel>
 
             <!-- Actors List -->
-            <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                <TextBlock Text="Actors:" FontWeight="Bold"/>
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Text="Akka.NET Actors:" FontWeight="Bold"/>
                 <ListBox x:Name="ActorsListBox"
                           Width="350" Height="350"
                              ScrollViewer.HorizontalScrollMode="Enabled"
@@ -43,5 +36,13 @@
                              ScrollViewer.VerticalScrollBarVisibility="Auto"/>
             </StackPanel>
         </StackPanel>
+
+        <TextBlock x:Name="StatusText" Text="" FontWeight="Bold"/>
+
+
+        <TextBlock x:Name="InfoText" 
+                   TextWrapping="Wrap"
+                   Margin="0"
+                   Text="Instructions: Click the 'Analyze Folder...' button and select a folder whose size you are interested in (pick a reasonably sized folder, not the entire hard drive). The program will use Akka.NET to calculate the size of the folder quickly using many CPUs instead of just one."/>
     </StackPanel>
 </Window>
