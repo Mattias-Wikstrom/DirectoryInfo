@@ -1,0 +1,47 @@
+<Window
+    x:Class="DirectoryInfo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="File Scanner">
+
+    <StackPanel Margin="12" Spacing="12">
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" Spacing="12">
+            <Button x:Name="SelectFolderButton"
+                    Content="List Folder Contents..."
+                    Click="SelectFolderButton_Click"/>
+        </StackPanel>
+
+
+        <TextBlock x:Name="StatusText" Text="Ready" FontWeight="Bold"/>
+
+        <ProgressRing x:Name="WorkIndicator" IsActive="False" Width="50" Height="50"/>
+
+
+
+        <StackPanel Orientation="Horizontal" Spacing="12">
+
+            <!-- Files List -->
+            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                <TextBlock Text="Files:" FontWeight="Bold"/>
+                <ListBox x:Name="FilesListBox"
+                          Width="350" Height="350"
+                         ScrollViewer.HorizontalScrollMode="Enabled"
+                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                         ScrollViewer.VerticalScrollMode="Enabled"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto" />
+            </StackPanel>
+
+            <!-- Actors List -->
+            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                <TextBlock Text="Actors:" FontWeight="Bold"/>
+                <ListBox x:Name="ActorsListBox"
+                          Width="350" Height="350"
+                             ScrollViewer.HorizontalScrollMode="Enabled"
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                             ScrollViewer.VerticalScrollMode="Enabled"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>

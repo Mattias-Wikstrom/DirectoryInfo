@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DirectoryInfo (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "DirectoryInfo (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
